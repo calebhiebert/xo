@@ -1,4 +1,4 @@
-package cmd
+package xo
 
 import (
 	"context"
@@ -9,10 +9,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kenshaw/inflector"
 	"github.com/calebhiebert/xo/loader"
 	"github.com/calebhiebert/xo/models"
 	xo "github.com/calebhiebert/xo/types"
+	"github.com/kenshaw/inflector"
 )
 
 // BuildSchema builds a schema.

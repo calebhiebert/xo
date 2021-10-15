@@ -1,17 +1,17 @@
 // Package cmd contains the primary logic of the xo command-line application.
-package cmd
+package xo
 
 import (
 	"context"
 	"database/sql"
 	"fmt"
 	"github.com/alecthomas/kingpin"
-	"github.com/gobwas/glob"
-	"github.com/xo/dburl"
-	"github.com/xo/dburl/passfile"
 	"github.com/calebhiebert/xo/loader"
 	"github.com/calebhiebert/xo/models"
 	xo "github.com/calebhiebert/xo/types"
+	"github.com/gobwas/glob"
+	"github.com/xo/dburl"
+	"github.com/xo/dburl/passfile"
 	"os/user"
 	"reflect"
 )
