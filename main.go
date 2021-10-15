@@ -7,9 +7,8 @@ package main
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
-	"os"
-
 	// drivers
 	_ "github.com/denisenkom/go-mssqldb"
 	_ "github.com/go-sql-driver/mysql"
@@ -17,25 +16,19 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	_ "github.com/sijms/go-ora/v2"
 
-	// templates
-	_ "github.com/xo/xo/templates/createdbtpl"
-	_ "github.com/xo/xo/templates/dottpl"
-	_ "github.com/xo/xo/templates/gotpl"
-	_ "github.com/xo/xo/templates/jsontpl"
-	_ "github.com/xo/xo/templates/yamltpl"
-
 	"github.com/xo/xo/cmd"
-	"github.com/xo/xo/internal"
-	"github.com/xo/xo/templates"
 )
 
-// version is the app version.
-var version = "0.0.0-dev"
-
 func main() {
-	ctx := context.WithValue(context.Background(), templates.SymbolsKey, internal.Symbols)
-	if err := cmd.Run(ctx, "xo", version); err != nil {
-		fmt.Fprintf(os.Stderr, "error: %v\n", err)
-		os.Exit(1)
+	db, err := sql.Open("postgres", "postgres://f4:f4@localhost:5432/f4?sslmode=disable")
+	if err != nil {
+		panic(err)
 	}
+
+	intro, err := cmd.IntrospectSchema(context.Background(), "public", "postgres", db)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(intro)
 }
