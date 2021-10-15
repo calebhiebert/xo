@@ -10,9 +10,9 @@ import (
 	"strings"
 
 	"github.com/kenshaw/inflector"
-	"github.com/xo/xo/loader"
-	"github.com/xo/xo/models"
-	xo "github.com/xo/xo/types"
+	"github.com/calebhiebert/xo/loader"
+	"github.com/calebhiebert/xo/models"
+	xo "github.com/calebhiebert/xo/types"
 )
 
 // BuildSchema builds a schema.

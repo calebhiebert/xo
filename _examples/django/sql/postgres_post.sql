@@ -1,3 +1,0 @@
-DROP INDEX auth_user_username_6821ab7c_like;
-DROP INDEX auth_group_name_a6ea08ec_like;
-DROP INDEX django_session_session_key_c0390e0f_like;

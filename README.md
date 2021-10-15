@@ -54,7 +54,7 @@ $ go get -u golang.org/x/tools/cmd/goimports
 Then, install `xo` in the usual Go way:
 
 ```sh
-$ go get -u github.com/xo/xo
+$ go get -u github.com/calebhiebert/xo
 ```
 
 > **Note:** Go 1.16+ is needed for installing `xo` from source, as it makes use
@@ -554,16 +554,16 @@ $ sudo alien -i oracle-instantclient-12.1-devel-*.rpm
 $ sudo alien -i oracle-instantclient-12.1-sqlplus-*.rpm
 
 # get xo
-$ go get -u github.com/xo/xo
+$ go get -u github.com/calebhiebert/xo
 
 # copy oci8.pc from xo/contrib to system pkg-config directory
-$ sudo cp $GOPATH/src/github.com/xo/xo/contrib/oci8.pc /usr/lib/pkgconfig/
+$ sudo cp $GOPATH/src/github.com/calebhiebert/xo/contrib/oci8.pc /usr/lib/pkgconfig/
 
 # install rana's ora driver
 $ go get -u gopkg.in/rana/ora.v4
 
 # assuming the above succeeded, install xo with oracle support enabled
-$ go install -tags oracle github.com/xo/xo
+$ go install -tags oracle github.com/calebhiebert/xo
 ```
 
 #### Contrib Scripts and Oracle Docker Image

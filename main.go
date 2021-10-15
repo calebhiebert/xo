@@ -16,7 +16,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	_ "github.com/sijms/go-ora/v2"
 
-	"github.com/xo/xo/cmd"
+	"github.com/calebhiebert/xo/cmd"
 )
 
 func main() {

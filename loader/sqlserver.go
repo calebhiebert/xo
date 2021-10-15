@@ -3,8 +3,8 @@ package loader
 import (
 	"regexp"
 
-	"github.com/xo/xo/models"
-	xo "github.com/xo/xo/types"
+	"github.com/calebhiebert/xo/models"
+	xo "github.com/calebhiebert/xo/types"
 )
 
 func init() {

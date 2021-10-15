@@ -9,9 +9,9 @@ import (
 	"github.com/gobwas/glob"
 	"github.com/xo/dburl"
 	"github.com/xo/dburl/passfile"
-	"github.com/xo/xo/loader"
-	"github.com/xo/xo/models"
-	xo "github.com/xo/xo/types"
+	"github.com/calebhiebert/xo/loader"
+	"github.com/calebhiebert/xo/models"
+	xo "github.com/calebhiebert/xo/types"
 	"os/user"
 	"reflect"
 )
