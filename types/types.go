@@ -108,6 +108,7 @@ type Table struct {
 	ForeignKeys []ForeignKey `json:"foreign_keys,omitempty"`
 	Manual      bool         `json:"manual,omitempty"`
 	Definition  string       `json:"definition,omitempty"` // empty for tables
+	Schema      *Schema      `json:"schema,omitempty"`
 }
 
 // MarshalYAML satisfies the yaml.Marshaler interface.

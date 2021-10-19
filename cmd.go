@@ -16,21 +16,15 @@ import (
 	"reflect"
 )
 
-func IntrospectSchema(ctx context.Context, schema, driver string, db *sql.DB) (*xo.XO, error) {
-	ctx, err := SetupDatabase(ctx, schema, driver, db)
+func IntrospectSchema(ctx context.Context, args *Args, driver string, db *sql.DB) (*xo.XO, error) {
+	ctx, err := SetupDatabase(ctx, args.DbParams.Schema, driver, db)
 	if err != nil {
 		return nil, err
 	}
 
-	ctx, args, err := NewArgs(ctx, &Args{
-		Verbose: true,
-		DbParams: DbParams{
-			Schema: schema,
-		},
-		SchemaParams: SchemaParams{
-			FkMode: "smart",
-		},
-	})
+	args.SchemaParams.FkMode = "smart"
+
+	ctx, args, err = NewArgs(ctx, args)
 	if err != nil {
 		return nil, err
 	}
@@ -41,6 +35,16 @@ func IntrospectSchema(ctx context.Context, schema, driver string, db *sql.DB) (*
 
 	if err := f(ctx, args, x); err != nil {
 		return nil, err
+	}
+
+	for j, schema := range x.Schemas {
+		for i, table := range schema.Tables {
+			table.Schema = &schema
+
+			schema.Tables[i] = table
+		}
+
+		x.Schemas[j] = schema
 	}
 
 	return x, nil
