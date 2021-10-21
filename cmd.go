@@ -44,6 +44,12 @@ func IntrospectSchema(ctx context.Context, args *Args, driver string, db *sql.DB
 			schema.Tables[i] = table
 		}
 
+		for i, view := range schema.Views {
+			view.Schema = &schema
+
+			schema.Views[i] = view
+		}
+
 		x.Schemas[j] = schema
 	}
 
